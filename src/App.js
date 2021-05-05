@@ -3,7 +3,7 @@ import './App.css';
 import Board from './modules/Board';
 
 function App() {
-  return <Board title='Trollo Board'/>;
+  return <Board />;
 }
 
 export default App;
