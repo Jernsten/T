@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TrolloList from "./TrolloList.js";
+import TrolloList from "./TrolloList";
 
 const [BACKLOG, TODO, INPROGRESS, DONE] = [
   "Backlog",
@@ -8,21 +8,27 @@ const [BACKLOG, TODO, INPROGRESS, DONE] = [
   "Done",
 ];
 
+const exampleTabs = [
+  { status: BACKLOG, title: "t1", desc: "d1" },
+  { status: TODO, title: "t2", desc: "d2" },
+  { status: INPROGRESS, title: "t3", desc: "d3" },
+  { status: DONE, title: "t4", desc: "d4" },
+];
+
+const createTrolloLists = (tabs) => {
+  const status = [BACKLOG, TODO, INPROGRESS, DONE];
+  return status.map((s) =>
+    tabs.filter((t) => t.status === s).map((t) => <TrolloList title={s} />)
+  );
+};
+
 const Board = (props) => {
-  const [tabs, setTabs] = useState([
-    { status: BACKLOG, title: "t1", desc: "d1" },
-    { status: TODO, title: "t2", desc: "d2" },
-    { status: INPROGRESS, title: "t3", desc: "d3" },
-    { status: DONE, title: "t4", desc: "d4" },
-  ]);
+  const [tabs] = useState(exampleTabs);
 
   return (
     <div style={{ border: "solid black" }}>
       <h1>{props.title}</h1>
-
-      {
-        //För varje tab med 'Backlog' så ska vi skapa en TrolloList
-      }
+      {createTrolloLists(tabs)}
     </div>
   );
 };

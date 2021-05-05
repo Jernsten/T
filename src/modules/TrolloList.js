@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-
-import AddTab from "./AddTab";
+import React from 'react';
 
 const TrolloList = (props) => {
 
-  return (
-    <div style={{ border: "solid blue" }}>
-      <h1 style={{ border: "solid red" }}>{props.title}</h1>
-      <ul style={{ border: "solid green" }}>
-      </ul>
-      {/* <AddTab setTabs={setTabs} /> */}
+    return <div style={{border: 'solid lightblue'}}>
+        <h1>{props.title}</h1>
     </div>
-  );
-};
+}
 
 export default TrolloList;
