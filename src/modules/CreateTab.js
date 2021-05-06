@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TabForm = (props) => {
+const TabForm = ({status, setTabs, setActivated}) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
@@ -15,10 +15,10 @@ const TabForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title !== "" || desc !== "") {
-        const tab = { status: props.status, title: title, desc: desc };
-        props.setTabs((prev) => [...prev, tab]);
+        const tab = { status: status, title: title, desc: desc };
+        setTabs((prev) => [...prev, tab]);
     }
-    props.setActivated(false)
+    setActivated(false)
   };
 
   return (
@@ -44,7 +44,7 @@ const TabForm = (props) => {
   );
 };
 
-const CreateTab = (props) => {
+const CreateTab = ({setTabs, status}) => {
   const [activated, setActivated] = useState(false);
 
   if (!activated)
@@ -52,8 +52,8 @@ const CreateTab = (props) => {
   else
     return (
       <TabForm
-        setTabs={props.setTabs}
-        status={props.status}
+        setTabs={setTabs}
+        status={status}
         setActivated={setActivated}
       />
     );
