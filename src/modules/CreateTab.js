@@ -1,15 +1,5 @@
 import React, { useState } from "react";
 
-import TabForm from "./TabForm.js";
-
-const AddTab = (props) => {
-  const [activated, setActivated] = useState(false);
-
-  if (!activated)
-    return <button onClick={() => setActivated(!activated)}>+</button>;
-  else return <TabForm setTabs={props.setTabs} />;
-};
-
 const TabForm = (props) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -24,10 +14,11 @@ const TabForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const tab = { title: title, desc: desc };
-    props.setTabs((prevState) => {
-      console.log("prevState", prevState);
-    });
+    if (title !== "" || desc !== "") {
+        const tab = { status: props.status, title: title, desc: desc };
+        props.setTabs((prev) => [...prev, tab]);
+    }
+    props.setActivated(false)
   };
 
   return (
@@ -53,4 +44,19 @@ const TabForm = (props) => {
   );
 };
 
-export default AddTab;
+const CreateTab = (props) => {
+  const [activated, setActivated] = useState(false);
+
+  if (!activated)
+    return <button onClick={() => setActivated(!activated)}>+</button>;
+  else
+    return (
+      <TabForm
+        setTabs={props.setTabs}
+        status={props.status}
+        setActivated={setActivated}
+      />
+    );
+};
+
+export default CreateTab;

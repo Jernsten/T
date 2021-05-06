@@ -1,12 +1,14 @@
 import React from "react";
 
-import AddTab from './AddTab'
+import CreateTab from "./CreateTab";
+import DeleteTab from "./DeleteTab";
 
-const renderTabs = (tabs) =>
+const renderTabs = ({tabs, setTabs}) =>
   tabs.map((tab) => (
     <li key={tab.title} style={{ border: "solid lightgreen" }}>
       <h3>{tab.title}</h3>
       <p>{tab.desc}</p>
+      <DeleteTab tab={tab} setTabs={setTabs} />
     </li>
   ));
 
@@ -15,8 +17,12 @@ const TrolloList = (props) => {
     <div style={{ border: "solid lightblue" }}>
       <h2>{props.title}</h2>
       <ul>
-        {renderTabs(props.tabs)}
-        <AddTab setTabs={props.setTabs}/>
+        {renderTabs(props)}
+        <CreateTab
+          tabs={props.tabs}
+          setTabs={props.setTabs}
+          status={props.title}
+        />
       </ul>
     </div>
   );
