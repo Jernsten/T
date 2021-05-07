@@ -61,6 +61,8 @@ const TrolloTab = ({ tab, setTabs }) => {
             <Card.Text>
               {isChangeable ? (
                 <Form.Control
+                  as="textarea"
+                  rows={8}
                   type="text"
                   value={newDesc}
                   onChange={(e) => handleDescChange(e.target.value)}

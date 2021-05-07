@@ -4,14 +4,44 @@ import Row from "react-bootstrap/Row";
 
 import TrolloList from "./TrolloList";
 
-import { TROLLO_TITLE, BACKLOG, TODO, INPROGRESS, DONE } from "./strings";
+import {
+  TROLLO_TITLE,
+  BACKLOG,
+  TODO,
+  INPROGRESS,
+  DONE,
+  EXAMPLETABS,
+} from "./strings";
 
 const exampleTabs = [
-  { status: BACKLOG, title: "t1afeaefaefaefaefefaefasefasefaefef", desc: "d1" },
-  { status: TODO, title: "t2", desc: "d2" },
-  { status: INPROGRESS, title: "t3", desc: "d3" },
-  { status: DONE, title: "t4", desc: "d4" },
-  { status: BACKLOG, title: "t5", desc: "d5" },
+  {
+    status: BACKLOG,
+    title: "Create Trollo Lists",
+    desc:
+      "In the main view, add 4 columns: Backlog, ToDo, InProgress and Done. Each column can be drag&drop to move orders. You are free to use any styling that is similar to trello.",
+  },
+  {
+    status: TODO,
+    title: "Add tabs",
+    desc: "Within each column, you can add tabs.",
+  },
+  {
+    status: INPROGRESS,
+    title: "Add tab form",
+    desc:
+      "Adding tabs asks to input a title, a description and a image to upload.",
+  },
+  {
+    status: DONE,
+    title: "Title Truncation",
+    desc: "In the main view the tabs have a title with maximum 20 characters.",
+  },
+  {
+    status: BACKLOG,
+    title: "Tabs are modifyable",
+    desc:
+      "In the main view once a tab is clicked, an overlay is shown with the title, description and the image(You can mock the image). The title and description are editable.",
+  },
 ];
 
 const renderTrolloLists = (tabs, setTabs) => {
