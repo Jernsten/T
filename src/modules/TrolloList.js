@@ -1,33 +1,34 @@
 import React from "react";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
 import CreateTab from "./CreateTab";
 import DeleteTab from "./DeleteTab";
 
 const renderTabs = (tabs, setTabs) => {
-  const handleClick = () => alert("yolo");
-
   return tabs.map((tab) => (
-    <li
-      key={tab.title}
-      style={{ border: "solid lightgreen" }}
-      onClick={handleClick}
-    >
-      <h3>{tab.title}</h3>
-      <p>{tab.desc}</p>
-      <DeleteTab tab={tab} setTabs={setTabs} />
-    </li>
+    <ListGroup.Item key={tab.title}>
+      <Card style={{ width: "18rem" }}>
+        <Card.Body>
+          <Card.Title>{tab.title}</Card.Title>
+          <Card.Text>{tab.desc}</Card.Text>
+          <DeleteTab tab={tab} setTabs={setTabs} />
+        </Card.Body>
+      </Card>
+    </ListGroup.Item>
   ));
 };
 
 const TrolloList = ({ title, tabs, setTabs }) => {
   return (
-    <div style={{ border: "solid lightblue" }}>
+    <Col key={title}>
       <h2>{title}</h2>
-      <ul>
+      <ListGroup>
         {renderTabs(tabs, setTabs)}
         <CreateTab tabs={tabs} setTabs={setTabs} status={title} />
-      </ul>
-    </div>
+      </ListGroup>
+    </Col>
   );
 };
 

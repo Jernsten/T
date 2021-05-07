@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 const TabForm = ({status, setTabs, setActivated}) => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -22,25 +25,25 @@ const TabForm = ({status, setTabs, setActivated}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <Form onSubmit={handleSubmit}>
+      <Form.Label>
         Title:
-        <input
+        <Form.Control
           type="text"
           value={title}
           onChange={(e) => handleTitleChange(e.target.value)}
         />
-      </label>
-      <label>
+      </Form.Label>
+      <Form.Label>
         Description:
-        <input
+        <Form.Control
           type="text"
           value={desc}
           onChange={(e) => handleDescChange(e.target.value)}
         />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+      </Form.Label>
+      <Button type="submit" value="Submit">Add</Button>
+    </Form>
   );
 };
 
@@ -48,7 +51,7 @@ const CreateTab = ({setTabs, status}) => {
   const [activated, setActivated] = useState(false);
 
   if (!activated)
-    return <button onClick={() => setActivated(!activated)}>+</button>;
+    return <Button onClick={() => setActivated(!activated)}>Create Tab</Button>;
   else
     return (
       <TabForm

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+
 import TrolloList from "./TrolloList";
 
 import { TROLLO_TITLE, BACKLOG, TODO, INPROGRESS, DONE } from "./strings";
@@ -39,10 +42,12 @@ const Board = () => {
   const [tabs, setTabs] = useState(exampleTabs);
 
   return (
-    <div style={{ border: "solid black" }}>
-      <h1>{TROLLO_TITLE}</h1>
-      {renderTrolloLists(tabs, setTabs)}
-    </div>
+    <Container fluid>
+      <Row>
+        <h1>{TROLLO_TITLE}</h1>
+      </Row>
+      <Row>{renderTrolloLists(tabs, setTabs)}</Row>
+    </Container>
   );
 };
 
