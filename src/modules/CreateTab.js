@@ -51,7 +51,7 @@ const CreateTab = ({setTabs, status}) => {
   const [activated, setActivated] = useState(false);
 
   if (!activated)
-    return <Button onClick={() => setActivated(!activated)}>Create Tab</Button>;
+    return <Button onClick={() => setActivated(!activated)}>+</Button>;
   else
     return (
       <TabForm

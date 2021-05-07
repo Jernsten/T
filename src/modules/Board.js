@@ -7,7 +7,7 @@ import TrolloList from "./TrolloList";
 import { TROLLO_TITLE, BACKLOG, TODO, INPROGRESS, DONE } from "./strings";
 
 const exampleTabs = [
-  { status: BACKLOG, title: "t1", desc: "d1" },
+  { status: BACKLOG, title: "t1afeaefaefaefaefefaefasefasefaefef", desc: "d1" },
   { status: TODO, title: "t2", desc: "d2" },
   { status: INPROGRESS, title: "t3", desc: "d3" },
   { status: DONE, title: "t4", desc: "d4" },

@@ -8,7 +8,7 @@ const DeleteTab = ({ tab, setTabs }) => {
       prev.filter((t) => JSON.stringify(t) !== JSON.stringify(tab))
     );
 
-  return <Button onClick={handleClick}>-</Button>;
+  return <Button variant="danger" onClick={handleClick} >-</Button>;
 };
 
 export default DeleteTab;
