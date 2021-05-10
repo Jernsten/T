@@ -10,7 +10,6 @@ import {
   TODO,
   INPROGRESS,
   DONE,
-  EXAMPLETABS,
 } from "./strings";
 
 const exampleTabs = [
